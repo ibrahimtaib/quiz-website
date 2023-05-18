@@ -1,5 +1,5 @@
-import { ColorScheme } from 'colors';
 import { CSSProperties, ReactNode } from 'react';
+import { ColorScheme } from './colors';
 
 /* Allow placing children */
 type FlexDisplayCSSProperties = {
@@ -46,7 +46,7 @@ export type CardProps = {
   children?: ReactNode;
   // displayStyle?: FlexDisplayCSSProperties;
   // cardStyle?: SizeCSSProperties;
-  style: FlexDisplayCSSProperties &
+  style?: FlexDisplayCSSProperties &
     GridDisplayCSSProperties &
     SizeCSSProperties &
     TextCSSProperties;
