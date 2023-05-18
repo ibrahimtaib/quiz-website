@@ -1,7 +1,8 @@
-import { CardProps } from 'card';
+import style from 'styles/card.module.css';
+import { CardProps } from 'types/card';
 
 const Card = ({ children }: CardProps) => {
-  return <div>{children}</div>;
+  return <div className={style.card}>{children}</div>;
 };
 
 export default Card;
