@@ -10,8 +10,21 @@ type FlexDisplayCSSProperties = {
   justifyItems?: CSSProperties['justifyItems'];
   alignItems?: CSSProperties['alignItems'];
   alignContent?: CSSProperties['alignContent'];
+  gap?: CSSProperties['gap'];
   flexWrap?: CSSProperties['flexWrap'];
 };
+
+type GridDisplayCSSProperties = {
+  display?: CSSProperties['display'];
+  gridTemplateColumns?: CSSProperties['gridTemplateColumns'];
+  gridTemplateRows?: CSSProperties['gridTemplateRows'];
+  gridTemplateAreas?: CSSProperties['gridTemplateAreas'];
+  gridAutoColumns?: CSSProperties['gridAutoColumns'];
+  gridAutoRows?: CSSProperties['gridAutoRows'];
+  gridAutoFlow?: CSSProperties['gridAutoFlow'];
+  placeItems?: CSSProperties['placeItems'];
+};
+
 /* Allow card resizing */
 type SizeCSSProperties = {
   width?: CSSProperties['width'];
@@ -33,6 +46,9 @@ export type CardProps = {
   children?: ReactNode;
   // displayStyle?: FlexDisplayCSSProperties;
   // cardStyle?: SizeCSSProperties;
-  style: FlexDisplayCSSProperties & SizeCSSProperties & TextCSSProperties;
+  style: FlexDisplayCSSProperties &
+    GridDisplayCSSProperties &
+    SizeCSSProperties &
+    TextCSSProperties;
   colorScheme?: ColorScheme;
 };
