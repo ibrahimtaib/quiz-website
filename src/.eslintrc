@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "eslint-config-prettier",
+    "prettier"
+  ],
+  "rules": {
+    // Add any additional ESLint rules specific to your project
+  }
+}
