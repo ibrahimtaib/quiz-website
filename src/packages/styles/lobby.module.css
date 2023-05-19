@@ -44,10 +44,10 @@
   width: 12em;
 
   /* transition */
-  transition: bottom 400ms ease;
-  -o-transition: bottom 400ms ease;
-  -moz-transition: bottom 400ms ease;
-  -webkit-transition: bottom 400ms ease;
+  transition: bottom 400ms ease, transform 400ms ease;
+  -o-transition: bottom 400ms ease, -o-transform 400ms ease;
+  -moz-transition: bottom 400ms ease, -moz-transform 400ms ease;
+  -webkit-transition: bottom 400ms ease, -webkit-transform 400ms ease;
 }
 .card:hover {
   bottom: 15%;
@@ -124,5 +124,18 @@
 @media screen and (min-width: 1400px) {
   .card {
     width: 15em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    display: none;
+  }
+  .card5 {
+    display: initial;
+    transform: translate(-50%, -22%);
+    -webkit-transform: translate(-50%, -22%);
+    -moz-transform: translate(-50%, -22%);
+    -o-transform: translate(-50%, -22%);
   }
 }
