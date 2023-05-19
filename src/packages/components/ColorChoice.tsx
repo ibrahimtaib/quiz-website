@@ -1,4 +1,5 @@
 import { MouseEvent, useState } from 'react';
+import style from 'styles/colorChoice.module.css';
 import { ColorChoiceProps } from 'types/colors';
 
 function ColorChoice({
@@ -26,7 +27,7 @@ function ColorChoice({
   };
   return (
     <button
-      className={className}
+      className={[style.colorChoice, className].join(' ')}
       style={colorStyle}
       onClick={onClickFunction}
     />
