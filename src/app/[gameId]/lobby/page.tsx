@@ -1,5 +1,6 @@
 'use client';
 import Card from 'components/Card';
+import LobbyColorPicker from 'components/LobbyColorPicker';
 import style from 'styles/lobby.module.css';
 function Lobby() {
   return (
@@ -11,7 +12,7 @@ function Lobby() {
         <Card className={[style.card, style.card4].join(' ')} />
         <Card className={[style.card, style.card5].join(' ')} />
       </div>
-      <button className={style.colorButton} />
+      <LobbyColorPicker />
     </div>
   );
 }

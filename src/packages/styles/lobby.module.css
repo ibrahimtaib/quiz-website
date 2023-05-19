@@ -20,10 +20,11 @@
   -o-transform: translate(-50%, 0);
 
   /* transition */
-  transition: width 400ms ease, border-radius 400ms ease;
-  -moz-transition: width 400ms ease, border-radius 400ms ease;
-  -o-transition: width 400ms ease, border-radius 400ms ease;
-  -webkit-transition: width 400ms ease, border-radius 400ms ease;
+  transition: height 400ms ease, width 400ms ease, border-radius 400ms ease;
+  -moz-transition: height 400ms ease, width 400ms ease, border-radius 400ms ease;
+  -o-transition: height 400ms ease, width 400ms ease, border-radius 400ms ease;
+  -webkit-transition: height 400ms ease, width 400ms ease,
+    border-radius 400ms ease;
 }
 .colorButton:hover {
   cursor: pointer;
@@ -31,6 +32,15 @@
   border-radius: 8% / 24%;
   width: 15em;
 }
+
+.openedButton {
+  position: relative;
+  background-color: blue;
+  border-radius: 6% / 24%;
+  width: 50em !important;
+  height: 13em !important;
+}
+
 .cardContainer {
   position: relative;
   height: 70%;
