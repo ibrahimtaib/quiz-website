@@ -1,2 +1,18 @@
+.colorChoiceContainer {
+  position: absolute;
+  width: 1.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  content: ' ';
+  background-color: white;
+  display: grid;
+  place-items: center;
+  border: 1px solid #72bef5;
+}
+
 .colorChoice {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  border: none;
 }
