@@ -3,7 +3,11 @@ import { CardProps } from 'types/card';
 
 const Card = ({ className, children }: CardProps) => {
   return (
-    <div className={[defaultStyle.card, className ? className : ''].join(' ')}>
+    <div
+      className={[defaultStyle.card, className ? className : '']
+        .join(' ')
+        .trim()}
+    >
       {children}
     </div>
   );
