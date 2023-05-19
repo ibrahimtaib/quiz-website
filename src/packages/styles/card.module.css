@@ -1,6 +1,8 @@
 .card {
   background-color: red;
   width: 13em;
+  -webkit-box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
   border-radius: var(--border-radius);
   aspect-ratio: var(--aspect-ratio);
 }
