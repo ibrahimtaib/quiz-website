@@ -1,6 +1,32 @@
 .lobby {
 }
+.cardContainer {
+  position: 'relative';
+}
+.card {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 8em;
+
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
 
 .card1 {
+  background-color: blue;
+}
+.card2 {
+  background-color: blue;
+}
+.card3 {
+  background-color: blue;
+}
+.card4 {
+  background-color: blue;
+}
+.card5 {
   background-color: blue;
 }
