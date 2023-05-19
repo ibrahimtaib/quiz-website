@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useMemo, useState } from 'react';
 import style from 'styles/colorChoice.module.css';
 import { ColorChoiceProps } from 'types/colors';
 
@@ -8,16 +8,20 @@ function ColorChoice({
   onClick,
   clicked
 }: ColorChoiceProps) {
-  const [buttonClicked, setButtonClicked] = useState(clicked);
+  const [buttonClicked, setButtonClicked] = useState(
+    clicked !== undefined ? clicked : false
+  );
 
   /* updating button with clicked prop */
-  if (!clicked && buttonClicked) {
+  if (clicked === false && buttonClicked) {
     setButtonClicked(false);
   }
-  const colorStyle = {
-    backgroundColor: colorScheme.primaryColor,
-    filter: buttonClicked ? 'brightness(85%)' : ''
-  };
+  const colorStyle = useMemo(() => {
+    return {
+      backgroundColor: colorScheme.primaryColor,
+      filter: buttonClicked === true ? 'brightness(50%)' : ''
+    };
+  }, [buttonClicked, colorScheme.primaryColor]);
   const onClickFunction = (e: MouseEvent) => {
     e.preventDefault();
     setButtonClicked(true);
@@ -26,11 +30,13 @@ function ColorChoice({
     }
   };
   return (
-    <button
-      className={[style.colorChoice, className].join(' ')}
-      style={colorStyle}
-      onClick={onClickFunction}
-    />
+    <div className={[style.colorChoiceContainer, className].join(' ')}>
+      <button
+        className={style.colorChoice}
+        style={colorStyle}
+        onClick={onClickFunction}
+      />
+    </div>
   );
 }
 
