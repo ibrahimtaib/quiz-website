@@ -56,7 +56,6 @@
 }
 /* avoids hovering on other cards once we hover on one */
 .card:hover::before {
-  background-color: red;
   position: absolute;
   width: 100%;
   height: 100%;
