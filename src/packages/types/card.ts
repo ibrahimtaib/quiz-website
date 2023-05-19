@@ -51,4 +51,5 @@ export type CardProps = {
     SizeCSSProperties &
     TextCSSProperties;
   colorScheme?: ColorScheme;
+  horizontal?: boolean;
 };
