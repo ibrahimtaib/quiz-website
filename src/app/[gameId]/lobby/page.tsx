@@ -10,6 +10,7 @@ function Lobby() {
         <Card className={[style.card, style.card4].join(' ')} />
         <Card className={[style.card, style.card5].join(' ')} />
       </div>
+      <button className={style.colorButton} />
     </div>
   );
 }

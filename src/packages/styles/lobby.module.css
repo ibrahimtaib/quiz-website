@@ -3,6 +3,34 @@
   height: 100%;
   width: 100%;
 }
+.colorButton {
+  position: relative;
+  width: 5em;
+  height: 5em;
+  background-color: #ffffff;
+  border: 2px solid #a6c7ee;
+  border-color: rgb(179, 186, 185);
+  border-radius: 50%;
+  box-shadow: 0px 3px 6px -2px var(--box-shadow-color);
+  /* Placement */
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+
+  /* transition */
+  transition: width 400ms ease, border-radius 400ms ease;
+  -moz-transition: width 400ms ease, border-radius 400ms ease;
+  -o-transition: width 400ms ease, border-radius 400ms ease;
+  -webkit-transition: width 400ms ease, border-radius 400ms ease;
+}
+.colorButton:hover {
+  cursor: pointer;
+  border-color: #a6c7ee;
+  border-radius: 8% / 24%;
+  width: 15em;
+}
 .cardContainer {
   position: relative;
   height: 70%;
@@ -14,7 +42,12 @@
   left: 50%;
   position: absolute;
   width: 12em;
+
+  /* transition */
   transition: bottom 400ms ease;
+  -o-transition: bottom 400ms ease;
+  -moz-transition: bottom 400ms ease;
+  -webkit-transition: bottom 400ms ease;
 }
 .card:hover {
   bottom: 15%;
@@ -72,6 +105,13 @@
 @media screen and ((max-width: 850px) or (max-height: 600px)) {
   .card {
     width: 8em;
+  }
+  .colorButton {
+    width: 3em;
+    height: 3em;
+  }
+  .colorButton:hover {
+    width: 10em;
   }
 }
 /* small height or big height small width */
