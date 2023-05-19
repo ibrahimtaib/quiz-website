@@ -1,7 +1,11 @@
-:root {}
+:root {
+  --aspect-ratio: 3/4;
+  --border-radius: 10% / 7.5%;
+}
 
 @media (prefers-color-scheme: dark) {
-  :root {}
+  :root {
+  }
 }
 
 * {
@@ -16,9 +20,11 @@ body {
   overflow-x: hidden;
 }
 
-body {}
+body {
+}
 
-a {}
+a {
+}
 
 @media (prefers-color-scheme: dark) {
   html {
