@@ -53,10 +53,62 @@ const PURPLE: ColorScheme = {
   quaternaryColor: '#FFBFF9'
 };
 
+const GREENACQUA: ColorScheme = {
+  name: 'GREENACQUA',
+  primaryColor: '#42A58D',
+  secondaryColor: '#3C8876',
+  tertiaryColor: '#85C1B3',
+  quaternaryColor: '#67EECD'
+};
+
+const PINK: ColorScheme = {
+  name: 'PINK',
+  primaryColor: '#FF9292',
+  secondaryColor: '#C67C7C',
+  tertiaryColor: '#FEA6A6',
+  quaternaryColor: '#FFBBBB'
+};
+
+const VIOLET: ColorScheme = {
+  name: 'VIOLET',
+  primaryColor: '#DB96D0',
+  secondaryColor: '#C084B7',
+  tertiaryColor: '#FFB1F3',
+  quaternaryColor: '#FFACF2'
+};
+
+const DARKBLUE: ColorScheme = {
+  name: 'DARKBLUE',
+  primaryColor: '#31608B',
+  secondaryColor: '#2F516F',
+  tertiaryColor: '#6184A4',
+  quaternaryColor: '#6F9ECA'
+};
+const DARKRED: ColorScheme = {
+  name: 'DARKRED',
+  primaryColor: '#9E4646',
+  secondaryColor: '#712F2F',
+  tertiaryColor: '#C66464',
+  quaternaryColor: '#FA9191'
+};
+
+const LIGHTORANGE: ColorScheme = {
+  name: 'LIGHTORANGE',
+  primaryColor: '#F8B577',
+  secondaryColor: '#E19B5A',
+  tertiaryColor: '#F4C89F',
+  quaternaryColor: '#FFD9B6'
+};
 export const COLORS = {
   RED,
   BLUE,
   YELLOW,
   GREEN,
-  PURPLE
+  PURPLE,
+  GREENACQUA,
+  PINK,
+  VIOLET,
+  DARKBLUE,
+  DARKRED,
+  LIGHTORANGE
 };
