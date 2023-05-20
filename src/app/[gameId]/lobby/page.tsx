@@ -18,7 +18,11 @@ function Lobby() {
           colorScheme={userColor}
         />
       </div>
-      <LobbyColorPicker userColor={userColor} setUserColor={setUserColor} />
+      <LobbyColorPicker
+        userColor={userColor}
+        setUserColor={setUserColor}
+        takenColors={[COLORS.GREEN, COLORS.PURPLE, COLORS.RED, COLORS.BLUE]}
+      />
     </div>
   );
 }
