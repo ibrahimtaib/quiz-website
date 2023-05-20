@@ -17,7 +17,7 @@
 .container {
   position: relative;
   width: 5em;
-  height: 5em;
+  aspect-ratio: 1;
   border-radius: 50%;
   overflow: hidden;
 }
