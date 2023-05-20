@@ -5,7 +5,7 @@
 }
 .cardContainer {
   position: relative;
-  height: 70%;
+  height: 64%;
   width: 100%;
   overflow: visible;
 }
@@ -16,10 +16,14 @@
   width: 12em;
 
   /* transition */
-  transition: bottom 400ms ease, transform 400ms ease;
-  -o-transition: bottom 400ms ease, -o-transform 400ms ease;
-  -moz-transition: bottom 400ms ease, -moz-transform 400ms ease;
-  -webkit-transition: bottom 400ms ease, -webkit-transform 400ms ease;
+  transition: width 400ms ease, height 400ms ease, bottom 400ms ease,
+    transform 400ms ease;
+  -o-transition: width 400ms ease, height 400ms ease, bottom 400ms ease,
+    -o-transform 400ms ease;
+  -moz-transition: width 400ms ease, height 400ms ease, bottom 400ms ease,
+    -moz-transform 400ms ease;
+  -webkit-transition: width 400ms ease, height 400ms ease, bottom 400ms ease,
+    -webkit-transform 400ms ease;
 }
 .card:hover {
   bottom: 15%;
@@ -95,13 +99,19 @@
     height: 50%;
   }
 }
+
 /* small width or big width small height */
-@media screen and ((max-width: 850px) or (max-height: 800px)) {
+@media screen and ((max-width: 850px) or (max-height: 750px)) {
   .card {
     width: 8em;
   }
   .cardContainer {
     height: 50%;
+  }
+}
+@media screen and ((min-height: 650px) and (max-height: 750px)) {
+  .card {
+    width: 10em;
   }
 }
 @media screen and (max-width: 500px) {

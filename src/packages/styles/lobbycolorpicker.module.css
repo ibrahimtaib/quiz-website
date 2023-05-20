@@ -45,6 +45,16 @@
   justify-content: center;
   align-items: center;
   gap: 0.8em;
+
+  /* transition */
+  transition: width 400ms ease, height 400ms ease, border-radius 400ms ease,
+    transform 400ms ease;
+  -o-transition: width 400ms ease, height 400ms ease, border-radius 400ms ease,
+    -o-transform 400ms ease;
+  -moz-transition: width 400ms ease, height 400ms ease, border-radius 400ms ease,
+    -moz-transform 400ms ease;
+  -webkit-transition: width 400ms ease, height 400ms ease,
+    border-radius 400ms ease, -webkit-transform 400ms ease;
 }
 
 .colorChoice {
