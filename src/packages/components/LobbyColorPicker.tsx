@@ -1,5 +1,7 @@
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 import style from 'styles/lobbycolorpicker.module.css';
+import { COLORS } from 'types/colors';
+import ColorChoice from './ColorChoice';
 
 function LobbyColorPicker() {
   const ref = useRef<HTMLButtonElement>(null);
@@ -24,11 +26,20 @@ function LobbyColorPicker() {
     };
   }, []);
   return (
-    <button
-      ref={ref}
-      className={[style.colorButton, style.openedButton].join(' ').trim()}
-      onClick={handleClick}
-    />
+    <div className={style.opened}>
+      <button
+        ref={ref}
+        className={[style.colorButton, style.openedButton].join(' ').trim()}
+        onClick={handleClick}
+      />
+      {Object.values(COLORS).map(e => (
+        <ColorChoice
+          className={style.colorChoice}
+          key={e.name}
+          colorScheme={e}
+        />
+      ))}
+    </div>
   );
 }
 
