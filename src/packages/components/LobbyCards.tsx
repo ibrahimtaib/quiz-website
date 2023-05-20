@@ -31,6 +31,7 @@ function LobbyCards({ userColor }: { userColor: ColorScheme }) {
               colorScheme={colors[index]}
               className={style.profilePicture}
             />
+            <span className={style.username}>Username</span>
           </Card>
         );
       })}
