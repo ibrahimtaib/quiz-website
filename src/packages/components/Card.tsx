@@ -5,7 +5,8 @@ import { CardProps } from 'types/card';
 const Card = ({ className, children, colorScheme }: CardProps) => {
   const style = useMemo(() => {
     return {
-      backgroundColor: colorScheme?.primaryColor
+      backgroundColor: colorScheme?.primaryColor,
+      color: colorScheme?.quaternaryColor
     };
   }, [colorScheme]);
   return (
