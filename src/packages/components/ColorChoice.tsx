@@ -11,9 +11,8 @@ function ColorChoice({
   const [buttonClicked, setButtonClicked] = useState(
     clicked !== undefined ? clicked : false
   );
-
   /* updating button with clicked prop */
-  if (clicked === false && buttonClicked) {
+  if (clicked !== true && buttonClicked) {
     setButtonClicked(false);
   }
   const colorStyle = useMemo(() => {
