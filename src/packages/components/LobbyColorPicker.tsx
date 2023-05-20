@@ -1,5 +1,5 @@
 import { MouseEvent, useEffect, useRef, useState } from 'react';
-import style from 'styles/lobby.module.css';
+import style from 'styles/lobbycolorpicker.module.css';
 
 function LobbyColorPicker() {
   const ref = useRef<HTMLButtonElement>(null);
@@ -26,9 +26,7 @@ function LobbyColorPicker() {
   return (
     <button
       ref={ref}
-      className={[style.colorButton, opened ? style.openedButton : '']
-        .join(' ')
-        .trim()}
+      className={[style.colorButton, style.openedButton].join(' ').trim()}
       onClick={handleClick}
     />
   );
