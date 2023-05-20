@@ -1,5 +1,5 @@
 .colorChoiceContainer {
-  position: absolute;
+  position: relative;
   width: 1.5em;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -11,6 +11,7 @@
 }
 
 .colorChoice {
+  cursor: pointer;
   width: 90%;
   height: 90%;
   border-radius: 50%;

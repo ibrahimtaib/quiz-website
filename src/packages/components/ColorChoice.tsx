@@ -19,7 +19,8 @@ function ColorChoice({
   const colorStyle = useMemo(() => {
     return {
       backgroundColor: colorScheme.primaryColor,
-      filter: buttonClicked === true ? 'brightness(50%)' : ''
+      filter: buttonClicked === true ? 'brightness(50%)' : '',
+      cursor: buttonClicked === false ? 'pointer' : 'initial'
     };
   }, [buttonClicked, colorScheme.primaryColor]);
   const onClickFunction = (e: MouseEvent) => {
