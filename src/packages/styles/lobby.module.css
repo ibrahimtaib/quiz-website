@@ -79,6 +79,12 @@
   -o-transform: translate(50%, 0%) rotate(24.46deg);
 }
 
+.profilePicture {
+  bottom: -16%;
+  left: 25%;
+  width: 50%;
+  aspect-ratio: 1;
+}
 /* MEDIA QUERIES */
 @media screen and (min-height: 800px) {
   .cardContainer {
