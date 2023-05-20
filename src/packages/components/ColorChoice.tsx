@@ -38,6 +38,7 @@ function ColorChoice({
           .trim()}
         style={colorStyle}
         onClick={onClickFunction}
+        disabled={buttonClicked}
       >
         {buttonClicked && <AiOutlineCheck color="white" size={23} />}
       </button>
