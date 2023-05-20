@@ -5,15 +5,38 @@
   border-radius: 50%;
   content: ' ';
   background-color: white;
-  display: grid;
-  place-items: center;
-  border: 1px solid #72bef5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #72bef5;
 }
 
 .colorChoice {
+  position: relative;
   cursor: pointer;
   width: 90%;
   height: 90%;
   border-radius: 50%;
   border: none;
+}
+
+.clicked {
+  cursor: initial;
+  display: grid;
+  place-items: center;
+}
+.clicked * {
+  position: absolute;
+  z-index: 1;
+}
+.clicked::before {
+  position: absolute;
+  z-index: 0;
+  content: ' ';
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: brightness(50%);
 }
