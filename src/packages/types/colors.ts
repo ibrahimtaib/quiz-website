@@ -99,6 +99,14 @@ const LIGHTORANGE: ColorScheme = {
   tertiaryColor: '#F4C89F',
   quaternaryColor: '#FFD9B6'
 };
+
+const MILITARYGREEN: ColorScheme = {
+  name: 'MILITARYGREEN',
+  primaryColor: '#ADAD83',
+  secondaryColor: '#81815E',
+  tertiaryColor: '#BDBD92',
+  quaternaryColor: '#E5E5B9'
+};
 export const COLORS = {
   RED,
   BLUE,
@@ -110,5 +118,6 @@ export const COLORS = {
   VIOLET,
   DARKBLUE,
   DARKRED,
-  LIGHTORANGE
+  LIGHTORANGE,
+  MILITARYGREEN
 };
