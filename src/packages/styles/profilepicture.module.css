@@ -1,0 +1,23 @@
+.head {
+  position: absolute;
+  bottom: 45%;
+  left: 33.5%;
+  width: 33%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.body {
+  position: absolute;
+  bottom: -50%;
+  left: 5%;
+  width: 90%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.container {
+  position: relative;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  overflow: hidden;
+}
