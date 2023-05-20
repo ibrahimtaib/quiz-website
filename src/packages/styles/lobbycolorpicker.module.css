@@ -36,7 +36,7 @@
   border: 2px solid #a6c7ee;
   border-radius: 6% / 24%;
   box-shadow: 0px 3px 6px -2px var(--box-shadow-color);
-  width: min(100%, 50em);
+  width: 50em;
   height: 13em;
   display: flex;
   padding: 2em 3em;
@@ -60,6 +60,21 @@
   }
   .colorButton:hover {
     width: 10em;
+  }
+}
+/* width too small */
+
+@media screen and (max-width: 850px) {
+  .opened {
+    width: 35em;
+    height: 9em;
+  }
+}
+@media screen and (max-width: 600px) {
+  .opened {
+    width: 100%;
+    height: fit-content;
+    border-radius: 0;
   }
 }
 /* width too big */

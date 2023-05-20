@@ -81,39 +81,29 @@
     height: 60%;
   }
 }
-/* small width or big width small height */
-@media screen and ((max-width: 850px) or (max-height: 600px)) {
-  .card {
-    width: 8em;
-  }
-  .colorButton {
-    width: 3em;
-    height: 3em;
-  }
-  .colorButton:hover {
-    width: 10em;
-  }
-}
-/* small height or big height small width */
-@media screen and (((min-height: 500px) and (max-height: 600px)) or (max-width: 850px)) {
-  .cardContainer {
-    height: 60%;
-  }
-}
+
 /* width too big */
 @media screen and (min-width: 1400px) {
   .card {
     width: 15em;
   }
-  .colorButton {
-    width: 7em;
-    height: 7em;
-  }
-  .colorButton:hover {
-    width: 21em;
-  }
 }
 
+/* small height or big height small width */
+@media screen and (((min-height: 500px) and (max-height: 600px)) or (max-width: 850px)) {
+  .cardContainer {
+    height: 50%;
+  }
+}
+/* small width or big width small height */
+@media screen and ((max-width: 850px) or (max-height: 800px)) {
+  .card {
+    width: 8em;
+  }
+  .cardContainer {
+    height: 50%;
+  }
+}
 @media screen and (max-width: 500px) {
   .card {
     display: none;
