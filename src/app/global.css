@@ -5,6 +5,8 @@
 
   --aspect-ratio: 3/4;
   --border-radius: 10% / 7.5%;
+  --aspect-ratio-horizontal: 4/3;
+  --border-radius-horizontal: 7.5% / 10%;
 }
 
 @media (prefers-color-scheme: dark) {
