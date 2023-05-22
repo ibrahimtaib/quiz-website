@@ -30,6 +30,7 @@ function ColorChoice({
   return (
     <div className={[style.colorChoiceContainer, className].join(' ').trim()}>
       <button
+        type="button"
         className={[
           style.colorChoice,
           buttonClicked === true ? style.clicked : ''

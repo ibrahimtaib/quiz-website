@@ -33,6 +33,7 @@ function LobbyColorPicker({
   return (
     <div className={style.opened}>
       <button
+        type="button"
         ref={ref}
         className={[style.colorButton, style.openedButton].join(' ').trim()}
         onClick={handleClick}
