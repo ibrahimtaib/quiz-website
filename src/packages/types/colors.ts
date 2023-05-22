@@ -121,3 +121,19 @@ export const COLORS = {
   LIGHTORANGE,
   MILITARYGREEN
 };
+
+export const TRUE: ColorScheme = {
+  name: 'TRUE',
+  primaryColor: '#78EFB6',
+  secondaryColor: '#278759',
+  tertiaryColor: '#278759',
+  quaternaryColor: '#278759'
+};
+
+export const FALSE: ColorScheme = {
+  name: 'FALSE',
+  primaryColor: '#F47272',
+  secondaryColor: '#9E4646',
+  tertiaryColor: '#9E4646',
+  quaternaryColor: '#9E4646'
+};
