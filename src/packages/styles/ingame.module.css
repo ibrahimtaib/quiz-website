@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.question {
+  margin: auto;
+  aspect-ratio: 1.8 !important;
+  border-radius: 10% / 20% !important;
+  width: clamp(12em, 30%, 50em);
+  border: 1px solid #095185;
+  margin-bottom: 2.5%;
+}
+.answers {
+  width: clamp(18em, 50%, 82em);
+  aspect-ratio: 2.4;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  margin-top: 0;
+}
+.answer {
+  width: 100%;
+  height: 45%;
+  border-radius: 4% / 20% !important;
+}
+
+/* media query when too high margin bottom for question is 2.5% */
