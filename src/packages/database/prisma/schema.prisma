@@ -9,3 +9,41 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+// model question with answers, a correct answer, and a question
+model Question {
+  id        Int      @id @default(autoincrement())
+  question  String
+  answers   String[]
+  correct   Int
+  sessionId Int 
+  session Session @relation(fields: [sessionId], references: [id])
+}
+
+// a session model, which is a collection of questions with a foreign key to a gameId
+model Session {
+  id        Int      @id @default(autoincrement())
+  gameId    Int
+  currQuestion Int
+  questions Question[]
+  game     Game @relation(fields: [gameId], references: [id])
+}
+
+//a player model, which has a color (string) and a gameId foreign key
+model Player {
+  id        Int      @id @default(autoincrement())
+  username  String
+  color     String
+  gameId    Int
+  game      Game @relation(fields: [gameId], references: [id]) 
+  score    Int
+
+  // no two colors in same game
+  @@unique([gameId, color])
+}
+
+model Game {
+  id        Int      @id @default(autoincrement())
+  currSession Int
+  sessions  Session[]
+  players   Player[]
+}
