@@ -1,0 +1,72 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.question {
+  margin: auto;
+  aspect-ratio: 1.8 !important;
+  border-radius: 10% / 20% !important;
+  width: clamp(12em, 30%, 50em);
+  border: 1px solid #095185;
+  margin-bottom: 2.5%;
+  font-weight: 400;
+  text-align: center;
+  font-size: 1.8em;
+  display: grid;
+  padding: 0 2em;
+  place-items: center;
+}
+.bianswers {
+  width: clamp(18em, 50%, 82em);
+  aspect-ratio: 2.4;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  margin-top: 0;
+}
+.bianswer {
+  width: 100%;
+  height: 45%;
+  border-radius: 4% / 20% !important;
+}
+.quadrupleanswers {
+  width: clamp(18em, 100%, 164em);
+  height: max-content;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6% 1.6%;
+  padding: 0 5%;
+  margin-top: 0;
+}
+.quadrupleanswer {
+  width: 80%;
+  aspect-ratio: 4.2;
+  border-radius: 4% / 20% !important;
+  font-weight: 700;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  font-size: 2.8em;
+}
+/* make all elements of the first column flex-end, and the ones of the second column flex-start */
+.quadrupleanswer:nth-child(odd) {
+  justify-self: end;
+}
+.quadrupleanswer:nth-child(even) {
+  justify-self: start;
+}
+
+/*media screen to make .quadrupleanswers only one column */
+@media screen and (max-width: 600px) {
+  .quadrupleanswers {
+    grid-template-columns: 1fr;
+    padding: 10;
+  }
+  .quadrupleanswer:nth-child(n) {
+    justify-self: center;
+  }
+}
