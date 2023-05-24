@@ -137,3 +137,32 @@ export const FALSE: ColorScheme = {
   tertiaryColor: '#9E4646',
   quaternaryColor: '#9E4646'
 };
+
+export const FIRST_QUESTION: ColorScheme = {
+  name: 'FIRST_QUESTION',
+  primaryColor: '#78B6EF',
+  secondaryColor: '#295277',
+  tertiaryColor: '#295277',
+  quaternaryColor: '#295277'
+};
+export const SECOND_QUESTION: ColorScheme = {
+  name: 'SECOND_QUESTION',
+  primaryColor: '#78EFB6',
+  secondaryColor: '#278759',
+  tertiaryColor: '#278759',
+  quaternaryColor: '#278759'
+};
+export const THIRD_QUESTION: ColorScheme = {
+  name: 'THIRD_QUESTION',
+  primaryColor: '#EDEF78',
+  secondaryColor: '#7E8023',
+  tertiaryColor: '#7E8023',
+  quaternaryColor: '#7E8023'
+};
+export const FOURTH_QUESTION: ColorScheme = {
+  name: 'FOURTH_QUESTION',
+  primaryColor: '#EFB178',
+  secondaryColor: '#9E632C',
+  tertiaryColor: '#9E632C',
+  quaternaryColor: '#9E632C'
+};
