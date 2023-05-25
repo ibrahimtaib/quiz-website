@@ -17,6 +17,7 @@ model Question {
   correct   Int
   sessionId Int 
   session Session @relation(fields: [sessionId], references: [id])
+  playersAnswers PlayerChoice[]
 }
 
 // a session model, which is a collection of questions with a foreign key to a gameId
@@ -36,11 +37,20 @@ model Player {
   gameId    Int
   game      Game @relation(fields: [gameId], references: [id]) 
   score    Int
-
+  answers PlayerChoice[]
   // no two colors in same game
   @@unique([gameId, color])
 }
+model PlayerChoice {
+  id Int @id @default(autoincrement())
+  playerId Int
+  questionId Int
+  player Player @relation(fields: [playerId], references: [id])
+  question Question @relation(fields: [questionId], references: [id])
+  choice Int
 
+  @@unique([playerId, questionId])
+}
 model Game {
   id        Int      @id @default(autoincrement())
   currSession Int
