@@ -36,7 +36,7 @@ model Player {
   color     String
   gameId    Int
   game      Game @relation(fields: [gameId], references: [id]) 
-  score    Int
+  score    Int  @default(0)
   answers PlayerChoice[]
   // no two colors in same game
   @@unique([gameId, color])
