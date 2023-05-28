@@ -33,7 +33,9 @@ const gameController: any = {
         }
       });
 
-      res.status(200).json(myGame);
+      res
+        .status(200)
+        .json({ message: 'Game created successfully!', game: myGame });
     } catch (error) {
       res.status(500).json({
         error:
@@ -60,7 +62,7 @@ const gameController: any = {
         });
         return;
       }
-      res.status(200).json(game);
+      res.status(200).json({ message: 'Game found', game });
     } catch (error) {
       console.error(error);
       res.status(500).json({
