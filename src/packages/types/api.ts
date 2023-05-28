@@ -2,7 +2,7 @@ export type Question = {
   id: number;
   sessionId: number;
   session?: Session;
-  playersAnswers: PlayerChoice[];
+  playersAnswers?: PlayerChoice[];
 } & TriviaQuestion;
 export type TriviaQuestion = {
   question: string;
