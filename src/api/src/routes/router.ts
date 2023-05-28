@@ -1,6 +1,7 @@
 import express from 'express';
-import gameController from '../controller/game';
+import gameRouter from './game';
 
 const router = express.Router();
-router.get('/', gameController.createGame);
+
+router.use('/games', gameRouter);
 module.exports = router;
