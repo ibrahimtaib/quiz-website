@@ -27,10 +27,46 @@ export type Session = {
   currQuestion: number;
   questions: Question[];
 };
+enum Difficulty {
+  easy = 'easy',
+  medium = 'medium',
+  hard = 'hard'
+}
+enum Type {
+  multiple = 'multiple',
+  boolean = 'boolean'
+}
+enum Category {
+  generalKnowledge = 9,
+  books = 10,
+  film = 11,
+  music = 12,
+  musicalsAndTheatres = 13,
+  television = 14,
+  videoGames = 15,
+  boardGames = 16,
+  scienceAndNature = 17,
+  computers = 18,
+  mathematics = 19,
+  mythology = 20,
+  sports = 21,
+  geography = 22,
+  history = 23,
+  politics = 24,
+  art = 25,
+  celebrities = 26,
+  animals = 27,
+  vehicles = 28,
+  comics = 29,
+  gadgets = 30,
+  animeAndManga = 31,
+  cartoons = 32
+}
+
 export type NewSession = {
-  category: string;
-  type: string;
-  difficulty: string;
+  category: Category;
+  type: Type;
+  difficulty: Difficulty;
   amount?: number;
 };
 
