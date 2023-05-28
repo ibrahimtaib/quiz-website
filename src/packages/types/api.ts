@@ -27,16 +27,16 @@ export type Session = {
   currQuestion: number;
   questions: Question[];
 };
-enum Difficulty {
+export enum Difficulty {
   easy = 'easy',
   medium = 'medium',
   hard = 'hard'
 }
-enum Type {
+export enum Type {
   multiple = 'multiple',
   boolean = 'boolean'
 }
-enum Category {
+export enum Category {
   generalKnowledge = 9,
   books = 10,
   film = 11,
