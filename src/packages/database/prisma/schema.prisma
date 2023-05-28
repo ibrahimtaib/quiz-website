@@ -14,8 +14,12 @@ model Question {
   id        Int      @id @default(autoincrement())
   question  String
   answers   String[]
-  correct   Int
   sessionId Int 
+  category  String?
+  type      String?
+  difficulty String?
+  correct_answer String
+  incorrect_answers String[]
   session Session @relation(fields: [sessionId], references: [id])
   playersAnswers PlayerChoice[]
 }

@@ -1,11 +1,16 @@
 export type Question = {
   id: number;
   question: string | String;
-  answers: string[] | String[];
-  correct: number;
   sessionId: number;
   session?: Session;
   playersAnswers: PlayerChoice[];
+} & TriviaQuestion;
+export type TriviaQuestion = {
+  category?: string;
+  type?: string;
+  difficulty?: string;
+  correct_answer: string;
+  incorrect_answers: string[];
 };
 export type PlayerChoice = {
   id: number;
