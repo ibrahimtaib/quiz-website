@@ -1,8 +1,14 @@
+import { NewSession, TriviaQuestion } from '../../../packages/types/api';
 import { COLORS, ColorScheme } from '../../../packages/types/colors';
 import prisma from '../prisma';
+import { createSessionQuestions } from '../utils/createSessionQuestions';
 const gameController: any = {
   createGame: async (req: any, res: any) => {
-    const { username, color }: { username: string; color: string } = req.body;
+    const {
+      username,
+      color,
+      newSession
+    }: { username: string; color: string; newSession: NewSession } = req.body;
     const colorNames: String[] = Object.values<ColorScheme>(COLORS).map(
       (c: ColorScheme) => c.name.toLowerCase()
     );
@@ -12,7 +18,11 @@ const gameController: any = {
       });
       return;
     }
+
     try {
+      const questions: TriviaQuestion[] = await createSessionQuestions(
+        newSession
+      );
       const myGame = await prisma.game.create({
         data: {
           players: {
@@ -23,7 +33,11 @@ const gameController: any = {
           },
           sessions: {
             create: {
-              questions: {}
+              questions: {
+                createMany: {
+                  data: questions
+                }
+              }
             }
           }
         },
