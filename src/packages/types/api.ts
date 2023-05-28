@@ -5,7 +5,7 @@ export type Question = {
   playersAnswers: PlayerChoice[];
 } & TriviaQuestion;
 export type TriviaQuestion = {
-  question: string | String;
+  question: string;
   category?: string;
   type?: string;
   difficulty?: string;
