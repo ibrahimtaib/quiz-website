@@ -24,7 +24,7 @@ model Question {
 model Session {
   id        Int      @id @default(autoincrement())
   gameId    Int
-  currQuestion Int
+  currQuestion Int  @default(0)
   questions Question[]
   game     Game @relation(fields: [gameId], references: [id])
 }
@@ -51,10 +51,17 @@ model PlayerChoice {
 
   @@unique([playerId, questionId])
 }
+enum GameStatus {
+  LOBBY
+  INGAME
+  SCORES
+  FINISHED
+}
 model Game {
   id        Int      @id @default(autoincrement())
+  status    GameStatus @default(LOBBY)
   url      String    @unique @default(uuid())
-  currSession Int
+  currSession Int    @default(0)
   sessions  Session[]
   players   Player[]
 }
