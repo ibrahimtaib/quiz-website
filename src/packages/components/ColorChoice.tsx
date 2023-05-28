@@ -1,3 +1,4 @@
+'use client';
 import { MouseEvent, useMemo, useState } from 'react';
 import { AiOutlineCheck } from 'react-icons/ai';
 import style from 'styles/colorChoice.module.css';
