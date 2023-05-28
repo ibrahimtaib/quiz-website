@@ -40,6 +40,34 @@ const gameController: any = {
           'Could not create a game. Please contact an administrator if the error persists'
       });
     }
+  },
+
+  getGame: async (req: any, res: any) => {
+    const { gameId } = req.params;
+    try {
+      const game = await prisma.game.findUnique({
+        where: {
+          id: +gameId
+        },
+        include: {
+          players: true,
+          sessions: true
+        }
+      });
+      if (!game) {
+        res.status(404).json({
+          error: 'Game not found'
+        });
+        return;
+      }
+      res.status(200).json(game);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        error:
+          'Could not get game. Please contact an administrator if the error persists'
+      });
+    }
   }
 };
 
