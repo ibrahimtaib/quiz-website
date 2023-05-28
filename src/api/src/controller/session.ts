@@ -56,7 +56,10 @@ const sessionController = {
             id: +gameId
           }
         });
-
+        if (!game) {
+          throw Error('Game is supposed to exist (middleware)');
+        }
+        //todo is this really necessary?
         if (game?.currSession !== +sessionId) {
           res.status(403).json({
             error: 'Session has already passed'
