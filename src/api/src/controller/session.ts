@@ -51,6 +51,18 @@ const sessionController = {
 
     try {
       await prisma.$transaction(async prisma => {
+        const game = await prisma.game.findUnique({
+          where: {
+            id: +gameId
+          }
+        });
+
+        if (game?.currSession !== +sessionId) {
+          res.status(403).json({
+            error: 'Session has already passed'
+          });
+          return;
+        }
         const session = await prisma.session.findUnique({
           where: {
             id: +sessionId
@@ -59,7 +71,6 @@ const sessionController = {
             questions: true
           }
         });
-
         if (!session) {
           res.status(404).json({
             error: 'Session not found'
