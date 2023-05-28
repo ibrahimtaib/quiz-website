@@ -1,3 +1,4 @@
+'use client';
 import { useMemo } from 'react';
 import defaultStyle from 'styles/card.module.css';
 import { CardProps } from 'types/card';
