@@ -16,7 +16,7 @@ export type PlayerChoice = {
   id: number;
   playerId: number;
   questionId: number;
-  choice: number;
+  answer: string;
   player?: Player;
   question?: Question;
 };

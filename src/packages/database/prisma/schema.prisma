@@ -51,7 +51,7 @@ model PlayerChoice {
   questionId Int
   player Player @relation(fields: [playerId], references: [id])
   question Question @relation(fields: [questionId], references: [id])
-  choice Int
+  answer String
 
   @@unique([playerId, questionId])
 }
