@@ -27,6 +27,12 @@ export type Session = {
   currQuestion: number;
   questions: Question[];
 };
+export type NewSession = {
+  category: string;
+  type: string;
+  difficulty: string;
+  amount?: number;
+};
 
 export type Player = {
   id: number;
