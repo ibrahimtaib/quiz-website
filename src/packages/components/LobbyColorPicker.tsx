@@ -1,3 +1,4 @@
+'use client';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 import style from 'styles/lobbycolorpicker.module.css';
 import { COLORS } from 'types/colors';
@@ -9,7 +10,7 @@ function LobbyColorPicker({
   setUserColor,
   takenColors
 }: LobbyColorPickerProps) {
-  const ref = useRef<HTMLButtonElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [opened, setOpened] = useState(false);
 
   const handleClick = (e: MouseEvent) => {
@@ -19,7 +20,11 @@ function LobbyColorPicker({
   useEffect(() => {
     console.log('in use effect!');
     const handleClickOutside = (event: Event) => {
-      if (ref.current && ref.current != event.target) {
+      if (
+        ref.current &&
+        ref.current != event.target &&
+        !ref.current.contains(event.target as Node)
+      ) {
         setOpened(false);
       }
     };
@@ -31,13 +36,11 @@ function LobbyColorPicker({
     };
   }, []);
   return (
-    <div className={style.opened}>
-      <button
-        type="button"
-        ref={ref}
-        className={[style.colorButton, style.openedButton].join(' ').trim()}
-        onClick={handleClick}
-      />
+    <div
+      ref={ref}
+      className={[!opened ? style.colorButton : style.opened].join(' ').trim()}
+      onClick={handleClick}
+    >
       {Object.values(COLORS).map(e => (
         <ColorChoice
           className={style.colorChoice}
