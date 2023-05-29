@@ -1,9 +1,12 @@
 .colorButton {
   position: relative;
+  display: grid;
+  place-items: center;
   overflow: hidden;
   width: 5em;
   height: 5em;
   outline: transparent;
+  color: rgb(179, 186, 185);
   background-color: #ffffff;
   border: 2px solid #a6c7ee;
   border-color: rgb(179, 186, 185);
@@ -26,18 +29,19 @@
   -webkit-transition: height 400ms ease, width 400ms ease,
     border-radius 400ms cubic-bezier(0.93, 0.39, 0.56, 0.96);
 }
-
+.colorButton > * {
+  pointer-events: none;
+}
 .colorButton:hover {
   cursor: pointer;
   border-color: #a6c7ee;
+  color: #78aff1;
   border-radius: 8% / 24%;
   width: 15em;
   transition-delay: 0ms;
   transition-timing-function: ease;
 }
-.colorButton > * {
-  display: none;
-}
+
 .opened {
   position: relative;
   background-color: #ffffff;
