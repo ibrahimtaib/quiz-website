@@ -54,7 +54,7 @@ function LobbyColorPicker({
           />
         ))
       ) : (
-        <BsPencil size={20} />
+        <BsPencil size={20} className={style.pencil} />
       )}
     </div>
   );
