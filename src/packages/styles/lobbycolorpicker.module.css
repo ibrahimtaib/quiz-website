@@ -1,8 +1,9 @@
 .colorButton {
-  display: none;
   position: relative;
+  overflow: hidden;
   width: 5em;
   height: 5em;
+  outline: transparent;
   background-color: #ffffff;
   border: 2px solid #a6c7ee;
   border-color: rgb(179, 186, 185);
@@ -16,21 +17,28 @@
   -o-transform: translate(-50%, 0);
 
   /* transition */
-  transition: height 400ms ease, width 400ms ease, border-radius 400ms ease;
-  -moz-transition: height 400ms ease, width 400ms ease, border-radius 400ms ease;
-  -o-transition: height 400ms ease, width 400ms ease, border-radius 400ms ease;
+  transition: height 400ms ease, width 400ms ease,
+    border-radius 400ms cubic-bezier(0.93, 0.39, 0.56, 0.96);
+  -moz-transition: height 400ms ease, width 400ms ease,
+    border-radius 400ms cubic-bezier(0.93, 0.39, 0.56, 0.96);
+  -o-transition: height 400ms ease, width 400ms ease,
+    border-radius 400ms cubic-bezier(0.93, 0.39, 0.56, 0.96);
   -webkit-transition: height 400ms ease, width 400ms ease,
-    border-radius 400ms ease;
+    border-radius 400ms cubic-bezier(0.93, 0.39, 0.56, 0.96);
 }
+
 .colorButton:hover {
   cursor: pointer;
   border-color: #a6c7ee;
   border-radius: 8% / 24%;
   width: 15em;
+  transition-delay: 0ms;
+  transition-timing-function: ease;
 }
-
+.colorButton > * {
+  display: none;
+}
 .opened {
-  margin: auto;
   position: relative;
   background-color: #ffffff;
   border: 2px solid #a6c7ee;
@@ -46,15 +54,24 @@
   align-items: center;
   gap: 0.8em;
 
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+
   /* transition */
-  transition: width 400ms ease, height 400ms ease, border-radius 400ms ease,
-    transform 400ms ease;
-  -o-transition: width 400ms ease, height 400ms ease, border-radius 400ms ease,
-    -o-transform 400ms ease;
-  -moz-transition: width 400ms ease, height 400ms ease, border-radius 400ms ease,
+  transition: width 400ms ease, height 400ms ease, transform 400ms ease;
+  -o-transition: width 400ms ease, height 400ms ease, -o-transform 400ms ease;
+  -moz-transition: width 400ms ease, height 400ms ease,
     -moz-transform 400ms ease;
   -webkit-transition: width 400ms ease, height 400ms ease,
-    border-radius 400ms ease, -webkit-transform 400ms ease;
+    -webkit-transform 400ms ease;
+}
+.opened > * {
+  display: visible;
+  opacity: 0;
+  animation: colorChoiceAppear 400ms ease 400ms 1 forwards;
 }
 
 .colorChoice {
@@ -67,6 +84,10 @@
   .colorButton {
     width: 3em;
     height: 3em;
+  }
+  .colorChoice {
+    width: 2em;
+    height: 2em;
   }
   .colorButton:hover {
     width: 10em;
@@ -95,5 +116,16 @@
   }
   .colorButton:hover {
     width: 21em;
+  }
+}
+
+@keyframes colorChoiceAppear {
+  0% {
+    opacity: 0;
+    transform: translate(0, 5%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 }
