@@ -6,9 +6,9 @@ export type Question = {
 } & TriviaQuestion;
 export type TriviaQuestion = {
   question: string;
-  category?: string;
-  type?: string;
-  difficulty?: string;
+  category: string;
+  type: string;
+  difficulty: string;
   correct_answer: string;
   incorrect_answers: string[];
 };
@@ -79,9 +79,15 @@ export type Player = {
   score: number;
   answers: PlayerChoice[];
 };
-
+export enum GameStatus {
+  LOBBY = 'lobby',
+  INGAME = 'ingame',
+  SCORES = 'scores',
+  FINISHED = 'finished'
+}
 export type Game = {
   id: number;
+  status: GameStatus;
   url: string | String;
   currSession: number;
   sessions: Session[];
