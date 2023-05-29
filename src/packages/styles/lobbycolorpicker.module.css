@@ -1,7 +1,13 @@
 .colorButton {
   position: relative;
-  display: grid;
-  place-items: center;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8em;
+
   overflow: hidden;
   width: 5em;
   height: 5em;
@@ -31,6 +37,10 @@
 }
 .colorButton > * {
   pointer-events: none;
+}
+.pencil {
+  width: 50%;
+  height: 50%;
 }
 .colorButton:hover {
   cursor: pointer;
@@ -73,9 +83,8 @@
     -webkit-transform 400ms ease;
 }
 .opened > * {
-  display: visible;
   opacity: 0;
-  animation: colorChoiceAppear 400ms ease 400ms 1 forwards;
+  animation: colorChoiceAppear 200ms ease 275ms 1 forwards;
 }
 
 .colorChoice {
@@ -125,10 +134,12 @@
 
 @keyframes colorChoiceAppear {
   0% {
+    display: visible;
     opacity: 0;
-    transform: translate(0, 5%);
+    transform: translate(0, 40%);
   }
   100% {
+    display: visible;
     opacity: 1;
     transform: translate(0, 0);
   }
