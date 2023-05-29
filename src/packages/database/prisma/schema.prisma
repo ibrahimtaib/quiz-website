@@ -55,15 +55,10 @@ model PlayerChoice {
 
   @@unique([playerId, questionId])
 }
-enum GameStatus {
-  LOBBY
-  INGAME
-  SCORES
-  FINISHED
-}
+
 model Game {
   id        Int      @id @default(autoincrement())
-  status    GameStatus @default(LOBBY)
+  status    String
   url      String    @unique @default(uuid())
   currSession Int    @default(0)
   sessions  Session[]

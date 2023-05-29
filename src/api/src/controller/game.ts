@@ -1,4 +1,8 @@
-import { NewSession, TriviaQuestion } from '../../../packages/types/api';
+import {
+  GameStatus,
+  NewSession,
+  TriviaQuestion
+} from '../../../packages/types/api';
 import { COLORS, ColorScheme } from '../../../packages/types/colors';
 import prisma from '../prisma';
 import { createSessionQuestions } from '../utils/createSessionQuestions';
@@ -25,6 +29,7 @@ const gameController: any = {
       );
       const myGame = await prisma.game.create({
         data: {
+          status: GameStatus.LOBBY,
           players: {
             create: {
               username: username,
