@@ -1,10 +1,10 @@
 'use client';
 import { MouseEvent, useEffect, useRef, useState } from 'react';
+import { BsPencil } from 'react-icons/bs';
 import style from 'styles/lobbycolorpicker.module.css';
 import { COLORS } from 'types/colors';
 import { LobbyColorPickerProps } from 'types/lobbycolorpicker';
 import ColorChoice from './ColorChoice';
-
 function LobbyColorPicker({
   userColor,
   setUserColor,
@@ -41,15 +41,21 @@ function LobbyColorPicker({
       className={[!opened ? style.colorButton : style.opened].join(' ').trim()}
       onClick={handleClick}
     >
-      {Object.values(COLORS).map(e => (
-        <ColorChoice
-          className={style.colorChoice}
-          key={e.name}
-          colorScheme={e}
-          clicked={e === userColor || (takenColors && takenColors.includes(e))}
-          onClick={() => setUserColor(e)}
-        />
-      ))}
+      {opened ? (
+        Object.values(COLORS).map(e => (
+          <ColorChoice
+            className={style.colorChoice}
+            key={e.name}
+            colorScheme={e}
+            clicked={
+              e === userColor || (takenColors && takenColors.includes(e))
+            }
+            onClick={() => setUserColor(e)}
+          />
+        ))
+      ) : (
+        <BsPencil size={20} />
+      )}
     </div>
   );
 }
