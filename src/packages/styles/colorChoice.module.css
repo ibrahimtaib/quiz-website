@@ -29,6 +29,10 @@
   position: absolute;
   z-index: 1;
 }
+.check {
+  width: 80%;
+  height: 80%;
+}
 .clicked::before {
   position: absolute;
   z-index: 0;

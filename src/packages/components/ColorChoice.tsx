@@ -42,7 +42,9 @@ function ColorChoice({
         onClick={onClickFunction}
         disabled={buttonClicked}
       >
-        {buttonClicked && <AiOutlineCheck color="white" size={23} />}
+        {buttonClicked && (
+          <AiOutlineCheck color="white" className={style.check} size={23} />
+        )}
       </button>
     </div>
   );
