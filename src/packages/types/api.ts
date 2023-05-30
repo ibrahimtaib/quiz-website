@@ -28,39 +28,40 @@ export type Session = {
   questions: Question[];
 };
 export enum Difficulty {
-  easy = 'easy',
-  medium = 'medium',
-  hard = 'hard'
+  EASY = 'easy',
+  MEDIUM = 'medium',
+  HARD = 'hard'
 }
 export enum Type {
-  multiple = 'multiple',
-  boolean = 'boolean'
+  MULTIPLE = 'multiple',
+  BOOLEAN = 'boolean'
 }
-export enum Category {
-  generalKnowledge = 9,
-  books = 10,
-  film = 11,
-  music = 12,
-  musicalsAndTheatres = 13,
-  television = 14,
-  videoGames = 15,
-  boardGames = 16,
-  scienceAndNature = 17,
-  computers = 18,
-  mathematics = 19,
-  mythology = 20,
-  sports = 21,
-  geography = 22,
-  history = 23,
-  politics = 24,
-  art = 25,
-  celebrities = 26,
-  animals = 27,
-  vehicles = 28,
-  comics = 29,
-  gadgets = 30,
-  animeAndManga = 31,
-  cartoons = 32
+/* write the category enum but this time all fields in uppercase */
+export enum CATEGORY {
+  GENERAL_KNOWLEDGE = 9,
+  BOOKS = 10,
+  FILM = 11,
+  MUSIC = 12,
+  MUSICALS_AND_THEATRES = 13,
+  TELEVISION = 14,
+  VIDEO_GAMES = 15,
+  BOARD_GAMES = 16,
+  SCIENCE_AND_NATURE = 17,
+  COMPUTERS = 18,
+  MATHEMATICS = 19,
+  MYTHOLOGY = 20,
+  SPORTS = 21,
+  GEOGRAPHY = 22,
+  HISTORY = 23,
+  POLITICS = 24,
+  ART = 25,
+  CELEBRITIES = 26,
+  ANIMALS = 27,
+  VEHICLES = 28,
+  COMICS = 29,
+  GADGETS = 30,
+  ANIME_AND_MANGA = 31,
+  CARTOONS = 32
 }
 
 export type NewSession = {
