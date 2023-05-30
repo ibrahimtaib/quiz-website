@@ -11,6 +11,11 @@ const sessionController = {
   createSession: async (req: any, res: any) => {
     const { gameId } = req.params;
     const { newSession }: { newSession: NewSession } = req.body;
+
+    if (!gameId || !newSession) {
+      res.status(400).json({ message: 'Bad arguments' });
+      return;
+    }
     try {
       // todo try to use a try catch block outside to check for errors in question fetching
       const questions: TriviaQuestion[] = await createSessionQuestions(
@@ -49,6 +54,10 @@ const sessionController = {
     const { gameId, sessionId } = req.params;
     const { playerId, answer } = req.body;
 
+    if (!gameId || !sessionId || !playerId || !answer) {
+      res.status(400).json({ message: 'Bad arguments' });
+      return;
+    }
     try {
       await prisma.$transaction(async prisma => {
         const game = await prisma.game.findUnique({

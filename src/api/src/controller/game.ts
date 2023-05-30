@@ -13,6 +13,11 @@ const gameController: any = {
       color,
       newSession
     }: { username: string; color: string; newSession: NewSession } = req.body;
+
+    if (!username || !color || !newSession) {
+      res.status(400).json({ message: 'Bad arguments' });
+      return;
+    }
     const colorNames: String[] = Object.values<ColorScheme>(COLORS).map(
       (c: ColorScheme) => c.name.toLowerCase()
     );
@@ -65,6 +70,10 @@ const gameController: any = {
 
   getGame: async (req: any, res: any) => {
     const { gameId } = req.params;
+    if (!gameId) {
+      res.status(400).json({ message: 'Bad arguments' });
+      return;
+    }
     try {
       const game = await prisma.game.findUnique({
         where: {
