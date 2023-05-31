@@ -23,6 +23,7 @@
     "typescript": "5.0.4"
   },
   "dependencies": {
+    "@prisma/client": "^4.15.0",
     "axios": "^1.4.0",
     "react-icons": "^4.8.0"
   }
