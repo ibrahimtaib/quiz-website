@@ -35,7 +35,7 @@ export async function middleware(request: NextRequest) {
   const url = request.nextUrl.origin + `/api/auth/${gameId}`;
 
   try {
-    const token = request.cookies.get(TOKEN_COOKIE_NAME);
+    const token = request.cookies.get(TOKEN_COOKIE_NAME)?.value;
     const headers: any = {
       'Content-Type': 'application/json'
     };
