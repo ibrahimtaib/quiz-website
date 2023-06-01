@@ -72,11 +72,6 @@ export async function POST(
         );
       }
     }
-    console.error('this the stuff');
-    console.error('this the stuff');
-    console.error('this the stuff');
-    console.error('this the stuff');
-    console.error('this the stuff');
     return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
   } catch (error) {
     console.error(error);
