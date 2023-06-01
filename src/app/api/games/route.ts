@@ -1,20 +1,13 @@
+import dotenv from 'dotenv';
+import jwt, { Secret } from 'jsonwebtoken';
 import { NextResponse } from 'next/server';
 import { GameStatus, TriviaQuestion } from 'types/api';
 import { COLORS, ColorScheme } from 'types/colors';
+import { TOKEN_COOKIE_NAME } from 'types/token';
 import prisma from 'utils/prisma';
 import { createSessionQuestions } from '../../../api/src/utils/createSessionQuestions';
-
+dotenv.config();
 export async function POST(request: Request) {
-  console.log('POST');
-  console.log('POST');
-  console.log('POST');
-  console.log('POST');
-  console.log('POST');
-  console.log('POST');
-  console.log('POST');
-  console.log('POST');
-  console.log('POST');
-  console.log('POST');
   const { username, color, newSession } = await request.json();
   console.log(username + ' ' + color + ' ' + newSession);
   if (!username || !color || !newSession) {
@@ -61,11 +54,23 @@ export async function POST(request: Request) {
         sessions: true
       }
     });
-    console.log('success');
-    return NextResponse.json(
+    const secret: Secret = process.env?.JWT_SECRET!;
+    if (!secret) {
+      throw new Error('JWT_SECRET not found in .env');
+    }
+    const codedToken = jwt.sign({ playerId: myGame.players[0].id }, secret, {
+      expiresIn: '1h'
+    });
+    const response = NextResponse.json(
       { message: 'Game created successfully!', game: myGame },
       { status: 200 }
     );
+    response.cookies.set(TOKEN_COOKIE_NAME, codedToken, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 60 * 60
+    });
+    return response;
   } catch (error) {
     NextResponse.json(
       {
