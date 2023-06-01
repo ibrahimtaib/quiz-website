@@ -2,6 +2,12 @@ import { NextRequest, NextResponse, URLPattern } from 'next/server';
 const PATTERNS: [{ pattern: URLPattern; handler: (url: any) => any }] = [
   {
     pattern: new URLPattern({
+      pathname: '/api/games/:gameId/:sessionId?'
+    }),
+    handler: ({ pathname }) => pathname.groups
+  },
+  {
+    pattern: new URLPattern({
       pathname: '/api/games/:gameId'
     }),
     handler: ({ pathname }) => pathname.groups
@@ -27,31 +33,37 @@ const params = (url: string): any => {
 
 export async function middleware(request: NextRequest) {
   const { gameId, sessionId } = params(request.url);
-  const url = request.nextUrl.origin + `/api/games/${gameId}`;
+  const url = request.nextUrl.origin + `/api/auth/${gameId}`;
   console.log(gameId, sessionId, url);
   console.log(gameId, sessionId, url);
   console.log(gameId, sessionId, url);
-  const game = await fetch(url)
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return res.json();
-    })
-    .then(res => res.game)
-    .catch(error => {
-      console.error(error);
-      return null;
+  try {
+    const response = await fetch(url, {
+      method: 'POST'
     });
-  // verify that player is in game todo
-  if (!game) {
-    return NextResponse.json({ message: 'Game not found' }, { status: 404 });
-  }
-  if (sessionId && game.currSession !== +sessionId) {
-    return NextResponse.json(
-      { message: 'Session already finished' },
-      { status: 401 }
-    );
+
+    if (!response.ok) {
+      return await response
+        .json()
+        .then(data => {
+          return NextResponse.json({
+            status: response.status,
+            body: data.message
+          });
+        })
+        .catch(() => {
+          return NextResponse.json({
+            status: 500,
+            body: 'An error occurred'
+          });
+        });
+    }
+  } catch (error) {
+    console.error('There has been a problem with your fetch operation:', error);
+    return NextResponse.json({
+      status: 500,
+      body: 'An error occurred'
+    });
   }
 }
 
