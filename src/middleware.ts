@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse, URLPattern } from 'next/server';
+import { TOKEN_COOKIE_NAME } from 'types/token';
 const PATTERNS: [{ pattern: URLPattern; handler: (url: any) => any }] = [
   {
     pattern: new URLPattern({
@@ -30,11 +31,11 @@ const params = (url: string): any => {
 };
 
 export async function middleware(request: NextRequest) {
-  const { gameId, sessionId } = params(request.url);
+  const { gameId } = params(request.url);
   const url = request.nextUrl.origin + `/api/auth/${gameId}`;
 
   try {
-    const token = request.cookies.get('token');
+    const token = request.cookies.get(TOKEN_COOKIE_NAME);
     const headers: any = {
       'Content-Type': 'application/json'
     };

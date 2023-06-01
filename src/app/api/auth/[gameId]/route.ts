@@ -1,19 +1,16 @@
 import dotenv from 'dotenv';
-import jwt, { JwtPayload, Secret } from 'jsonwebtoken';
+import jwt, { Secret } from 'jsonwebtoken';
 import { NextRequest, NextResponse } from 'next/server';
 import { GameStatus } from 'types/api';
+import { TokenJwtPayload, TOKEN_COOKIE_NAME } from 'types/token';
 import prisma from 'utils/prisma';
 dotenv.config();
-interface MyJwtPayload extends JwtPayload {
-  playerId: number;
-  // Add more custom fields as needed
-}
 export async function POST(
   request: NextRequest,
   { params }: { params: { gameId: string } }
 ) {
   const gameId = params.gameId;
-  const token = request.headers.get('token');
+  const token = request.headers.get(TOKEN_COOKIE_NAME);
   if (isNaN(parseInt(gameId)) || parseInt(gameId) < 0) {
     return NextResponse.json(
       { message: 'Game Id must be a positive integer' },
@@ -49,7 +46,7 @@ export async function POST(
         throw new Error('JWT_SECRET not found in .env');
       }
       try {
-        const decodedToken = jwt.verify(token, secret) as MyJwtPayload;
+        const decodedToken = jwt.verify(token, secret) as TokenJwtPayload;
         const player = await prisma.player.findUnique({
           where: {
             id: decodedToken.playerId
