@@ -2,7 +2,7 @@ import { NextRequest, NextResponse, URLPattern } from 'next/server';
 const PATTERNS: [{ pattern: URLPattern; handler: (url: any) => any }] = [
   {
     pattern: new URLPattern({
-      pathname: '/api/games/:gameId/:sessionId?'
+      pathname: '/api/games/:gameId/:sessionId'
     }),
     handler: ({ pathname }) => pathname.groups
   },
@@ -16,13 +16,11 @@ const PATTERNS: [{ pattern: URLPattern; handler: (url: any) => any }] = [
 
 const params = (url: string): any => {
   const input = url.split('?')[0];
-  console.log('input ' + input);
   let result = {};
 
   for (const { pattern, handler } of PATTERNS) {
     const patternResult = pattern.exec(input);
 
-    console.log(pattern);
     if (patternResult !== null && 'pathname' in patternResult) {
       result = handler(patternResult);
       break;
@@ -34,36 +32,47 @@ const params = (url: string): any => {
 export async function middleware(request: NextRequest) {
   const { gameId, sessionId } = params(request.url);
   const url = request.nextUrl.origin + `/api/auth/${gameId}`;
-  console.log(gameId, sessionId, url);
-  console.log(gameId, sessionId, url);
-  console.log(gameId, sessionId, url);
+
   try {
+    const token = request.cookies.get('token');
+    const headers: any = {
+      'Content-Type': 'application/json'
+    };
+
+    if (token) {
+      headers.token = token;
+    }
     const response = await fetch(url, {
+      headers,
       method: 'POST'
     });
-
     if (!response.ok) {
       return await response
         .json()
         .then(data => {
-          return NextResponse.json({
-            status: response.status,
-            body: data.message
-          });
+          return NextResponse.json(data.message, { status: response.status });
         })
-        .catch(() => {
-          return NextResponse.json({
-            status: 500,
-            body: 'An error occurred'
-          });
+        .catch(error => {
+          console.error(
+            'An error occorred when trying to convert json to object: ',
+            error
+          );
+          return NextResponse.json(
+            { message: 'An error occurred' },
+            {
+              status: 500
+            }
+          );
         });
     }
   } catch (error) {
     console.error('There has been a problem with your fetch operation:', error);
-    return NextResponse.json({
-      status: 500,
-      body: 'An error occurred'
-    });
+    return NextResponse.json(
+      { message: 'An error occurred' },
+      {
+        status: 500
+      }
+    );
   }
 }
 
