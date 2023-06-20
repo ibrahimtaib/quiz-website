@@ -12,11 +12,11 @@ function LobbyColorPicker({
 }: LobbyColorPickerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [opened, setOpened] = useState(false);
-
   const handleClick = (e: MouseEvent) => {
     e.preventDefault();
     setOpened(true);
   };
+
   useEffect(() => {
     console.log('in use effect!');
     const handleClickOutside = (event: Event) => {
