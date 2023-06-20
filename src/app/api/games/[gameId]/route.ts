@@ -1,3 +1,4 @@
+import { MAX_PLAYERS } from 'constants/game';
 import { NextResponse } from 'next/server';
 import { GameStatus } from 'types/api';
 import prisma from 'utils/prisma';
@@ -61,7 +62,7 @@ export async function POST(
   if (!game) {
     return NextResponse.json({ message: 'Game not found' }, { status: 404 });
   }
-  if (game.players.length == 5) {
+  if (game.players.length == MAX_PLAYERS) {
     return NextResponse.json({ message: 'Game is full' }, { status: 400 });
   }
   if (game.status !== GameStatus.LOBBY) {
