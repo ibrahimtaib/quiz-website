@@ -24,6 +24,7 @@
   bottom: 15%;
   transition: bottom 400ms ease;
   cursor: pointer;
+  overflow: visible;
 }
 /* avoids hovering on other cards once we hover on one */
 .card:hover::before {
