@@ -1,8 +1,8 @@
 'use client';
-import { MouseEvent, useEffect, useRef, useState } from 'react';
+import { MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { BsPencil } from 'react-icons/bs';
 import style from 'styles/lobbycolorpicker.module.css';
-import { COLORS } from 'types/colors';
+import { COLORS, ColorScheme } from 'types/colors';
 import { LobbyColorPickerProps } from 'types/lobbycolorpicker';
 import ColorChoice from './ColorChoice';
 function LobbyColorPicker({
@@ -11,14 +11,18 @@ function LobbyColorPicker({
   takenColors
 }: LobbyColorPickerProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const setUserColorCallback = useCallback(
+    (e: ColorScheme) => setUserColor(e),
+    []
+  );
   const [opened, setOpened] = useState(false);
   const handleClick = (e: MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     setOpened(true);
   };
 
   useEffect(() => {
-    console.log('in use effect!');
     const handleClickOutside = (event: Event) => {
       if (
         ref.current &&
@@ -47,10 +51,8 @@ function LobbyColorPicker({
             className={style.colorChoice}
             key={e.name}
             colorScheme={e}
-            clicked={
-              e === userColor || (takenColors && takenColors.includes(e))
-            }
-            onClick={() => setUserColor(e)}
+            clicked={takenColors && takenColors.includes(e)}
+            onClick={() => setUserColorCallback(e)}
           />
         ))
       ) : (

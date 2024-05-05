@@ -65,7 +65,7 @@ export enum CATEGORY {
 }
 
 export type NewSession = {
-  category: Category;
+  category: CATEGORY;
   type: Type;
   difficulty: Difficulty;
   amount?: number;

@@ -18,6 +18,7 @@ function LobbyCards({ userColor }: { userColor: ColorScheme }) {
     COLORS.GREEN,
     userColor
   ];
+  console.log(userColor);
   return (
     <div className={style.cardContainer}>
       {styles.map((s, index) => {

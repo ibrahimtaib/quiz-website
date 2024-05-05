@@ -1,5 +1,5 @@
 'use client';
-import { MouseEvent, useMemo, useState } from 'react';
+import { MouseEvent, useMemo } from 'react';
 import { AiOutlineCheck } from 'react-icons/ai';
 import style from 'styles/colorChoice.module.css';
 import { ColorChoiceProps } from 'types/colors';
@@ -9,21 +9,15 @@ function ColorChoice({
   onClick,
   clicked
 }: ColorChoiceProps) {
-  const [buttonClicked, setButtonClicked] = useState(
-    clicked !== undefined ? clicked : false
-  );
-  /* updating button with clicked prop */
-  if (clicked !== true && buttonClicked) {
-    setButtonClicked(false);
-  }
   const colorStyle = useMemo(() => {
     return {
       backgroundColor: colorScheme.primaryColor
     };
   }, [colorScheme.primaryColor]);
   const onClickFunction = (e: MouseEvent) => {
+    console.log('clicked');
     e.preventDefault();
-    setButtonClicked(true);
+    e.stopPropagation();
     if (onClick) {
       onClick();
     }
@@ -32,17 +26,14 @@ function ColorChoice({
     <div className={[style.colorChoiceContainer, className].join(' ').trim()}>
       <button
         type="button"
-        className={[
-          style.colorChoice,
-          buttonClicked === true ? style.clicked : ''
-        ]
+        className={[style.colorChoice, clicked ? style.clicked : '']
           .join(' ')
           .trim()}
         style={colorStyle}
         onClick={onClickFunction}
-        disabled={buttonClicked}
+        disabled={clicked}
       >
-        {buttonClicked && (
+        {clicked && (
           <AiOutlineCheck color="white" className={style.check} size={23} />
         )}
       </button>
